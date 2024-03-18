@@ -1,5 +1,6 @@
 using System;
 using Common.Circle;
+using Common.Data;
 using VContainer;
 using VContainer.Unity;
 using UnityEngine;
@@ -10,6 +11,21 @@ namespace Common.Game_Manager_System
     public class CircleSpawner: ICircleSpawnService
     {
         private readonly IObjectResolver _objectResolver;
+        private SoundPackPreset _soundPackPreset;
+        private Sprite _whiteSprite;
+        private Sprite _blackSprite;
+        
+        public void Initialize(SoundPackPreset soundPackPreset)
+        {
+            _soundPackPreset = soundPackPreset;
+            _whiteSprite = soundPackPreset.WhiteCircleSkin;
+            _blackSprite = soundPackPreset.BlackCircleSkin;
+        }
+
+        public int WhiteCount => _whiteCount;
+        private int _whiteCount;
+        public int BlackCount => _blackCount;
+        private int _blackCount;
 
         public CircleCounter CircleCounter { get; }
 
@@ -26,16 +42,33 @@ namespace Common.Game_Manager_System
             
             CircleCounter = new CircleCounter();
         }
-        
+    
         public void SpawnBalls(CircleType circleType, int spawnCount)
         {
             RemoveAllBalls(circleType);
+
+            if (circleType == CircleType.White)
+            {
+                _whiteCount = spawnCount;
+            }
+            else
+            {
+                _blackCount = spawnCount;
+            }
             
             for (int i = 0; i < spawnCount; i++)
             {
-                Vector3 randomSpawnPos = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3));
+                Vector3 randomSpawnPos;
+
+                randomSpawnPos = circleType == CircleType.White ?
+                    new Vector3(Random.Range(-5, -1), Random.Range(-3, 3)) : 
+                    new Vector3(Random.Range(1, 5), Random.Range(-3, 3));
+                
+                
                 ACircleController aCircleControllerPrefab = circleType == CircleType.White ? _whiteCircleControllerPrefab : _blackCircleControllerPrefab;
-                var circle = _objectResolver.Instantiate(aCircleControllerPrefab, randomSpawnPos, Quaternion.identity); 
+                var circle = _objectResolver.Instantiate(aCircleControllerPrefab, randomSpawnPos, Quaternion.identity);
+                circle.SetSkin(circleType == CircleType.White ? _whiteSprite : _blackSprite);
+                circle.transform.localScale = Vector3.one * _soundPackPreset.CircleSize;
                 CircleCounter.Add(circle);
             }
         }

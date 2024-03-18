@@ -1,76 +1,80 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Common.Cell_System;
-using Common.Environment_System;
 using Tools;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+namespace Common.Cell_System
 {
-    [SerializeField] private CellSettings _whiteCellSettings;
-    [SerializeField] private CellSettings _blackCellSettings;
-
-    private SpriteRenderer _spriteRenderer;
-
-    public ReactiveProperty<CellState> CellState { get; } = new();
-    
-    private CellCounter _cellCounter;
-    
-    private void Awake()
+    public class Cell : MonoBehaviour
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+        [SerializeField] private string _whiteCellLayerString;
+        [SerializeField] private string _blackCellLayerString;
 
-    public void SetCellState(CellState cellState, CellCounter counter)
-    {
-        _cellCounter = counter;
-        CellState.Value = cellState;
+        private SpriteRenderer _spriteRenderer;
+
+        private Sprite _whiteSprite;
+        private Sprite _blackSprite;
         
-        ChangeCellState();
-    }
+        public ReactiveProperty<CellState> cellState { get; } = new();
     
-    public void ChangeCellState()
-    {
-        switch (CellState.Value)
+        private CellCounter _cellCounter;
+    
+        private void Awake()
         {
-            case global::CellState.Black:
-                SetWhiteCell();
-                break;
-            case global::CellState.White:
-                SetBlackCell();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        public void Initialize(Sprite whiteSprite, Sprite blackSprite, int orderInLayer)
+        {
+            _spriteRenderer.sortingOrder = orderInLayer;
+            _whiteSprite = whiteSprite;
+            _blackSprite = blackSprite;
         }
         
-        _cellCounter.ChangeScore(CellState.Value);
+        public void SetCellState(CellState cellState, CellCounter counter)
+        {
+            _cellCounter = counter;
+            this.cellState.Value = cellState;
+        
+            ChangeCellState();
+        }
+    
+        public void ChangeCellState()
+        {
+            switch (cellState.Value)
+            {
+                case CellState.Black:
+                    SetWhiteCell();
+                    break;
+                case CellState.White:
+                    SetBlackCell();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        
+            _cellCounter.ChangeScore(cellState.Value);
+        }
+
+        private void SetBlackCell()
+        {
+            gameObject.layer = LayerMask.NameToLayer(_blackCellLayerString);
+            cellState.Value = CellState.Black;
+            _spriteRenderer.sprite = _blackSprite;
+        }
+
+        private void SetWhiteCell()
+        {
+            gameObject.layer = LayerMask.NameToLayer(_whiteCellLayerString);
+            cellState.Value = CellState.White;
+            _spriteRenderer.sprite = _whiteSprite;
+        }
     }
 
-    private void SetBlackCell()
+
+
+    public enum CellState
     {
-        _spriteRenderer.color = _blackCellSettings.BaseColor;
-        gameObject.layer = LayerMask.NameToLayer(_blackCellSettings.BaseLayerMask);
-        CellState.Value = global::CellState.Black;
+        White,
+        Black
     }
-
-    private void SetWhiteCell()
-    {
-        _spriteRenderer.color = _whiteCellSettings.BaseColor;
-        gameObject.layer = LayerMask.NameToLayer(_whiteCellSettings.BaseLayerMask);
-        CellState.Value = global::CellState.White;
-    }
-}
-
-[Serializable]
-public class CellSettings
-{
-    [field:SerializeField] public Color BaseColor { get; private set; }
-    [field:SerializeField] public string BaseLayerMask { get; private set; }
-}
-
-public enum CellState
-{
-    White,
-    Black
 }

@@ -8,37 +8,38 @@ namespace Common.Environment_System
 {
     public class SoundManager : MonoBehaviour, ISoundManagerService
     {
-        private int _index;
-        
         [SerializeField]
         private AudioSource _audioSource;
         [SerializeField]
         private AudioSource _backGroundAudioSource;
 
-        [SerializeField] private SoundPackData[] _soundPacks;
+        private SoundPackData _soundPacks;
+
+        public float BackgroundVolume => _backGroundAudioSource.volume;
+
+        public float CollisionSoundVolume => _audioSource.volume;
 
         public void PlayBackgroundSound()
         {
-            _backGroundAudioSource.clip = _soundPacks[_index].GetBackgroundMusicClip();
+            _backGroundAudioSource.clip = _soundPacks.GetBackgroundMusicClip();
             _backGroundAudioSource.Play();
         }
-    
+
+        public void Initialize(SoundPackPreset soundPackPreset)
+        {
+            _soundPacks = soundPackPreset.SoundPackData;
+        }
+
         public void PlayRandomSound()
         {
-            _audioSource.PlayOneShot(_soundPacks[_index].GetRandomClip());
+            _audioSource.PlayOneShot(_soundPacks.GetRandomClip());
         }
     
         public void PlayRandomWallSound()
         {
-            _audioSource.PlayOneShot(_soundPacks[_index].GetRandomClip());
+            _audioSource.PlayOneShot(_soundPacks.GetRandomClip());
         }
-
-        public void SetIndex(float index)
-        {
-            _index = (int)index;
-            PlayBackgroundSound();
-        }
-
+        
         public void SetBackgroundMusicVolume(float volume)
         {
             _backGroundAudioSource.volume = volume;

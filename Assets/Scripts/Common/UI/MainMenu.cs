@@ -1,13 +1,18 @@
+using Common.Data;
+using Common.GlobalScene;
+using Common.Main_Menu;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using VContainer;
+using VContainer.Unity;
 
 namespace Common.UI
 {
     public class MainMenu : MonoBehaviour
     {
-        public void LoadLevel()
+        public void LoadLevel(SoundPackPreset soundPackPreset)
         {
-            SceneManager.LoadScene("Scenes/GameScene");
+            GameSettings.SetSoundDataPreset(soundPackPreset);   
+            GlobalSceneManager.LoadSceneAsync("Assets/Scenes/GameScene.unity");
         }
     }
 }

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a41771d72c64ec886818c28d54d1927, type: 3}
+  m_Name: Sound PackPreset #3
+  m_EditorClassIdentifier: 
+  <SoundPackName>k__BackingField: Office
+  <SoundLogo>k__BackingField: {fileID: 0}
+  <CircleSize>k__BackingField: 2.2
+  <CellSize>k__BackingField: 10
+  <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 81afa0b05cfb30341b1f4d1b177f358c, type: 3}
+  <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: ec64a382891d29c49b2a0921ece3900f, type: 3}
+  <WhiteCellSkin>k__BackingField:
+  - {fileID: -669017815, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: -1267698838, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: 1553399948, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: -1867529374, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: 1980355846, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: 373551106, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: 1608678217, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: 1573605603, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  - {fileID: -1555514345, guid: 977ade27f1df73e459e4ae573c76af1e, type: 3}
+  <BlackCellSkin>k__BackingField:
+  - {fileID: -1661968487, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: 1477306985, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: 391994314, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: -1306875201, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: -1166396775, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: 1259210579, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: -20493980, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: 17227011, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  - {fileID: -26981868, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
+  <SoundPackData>k__BackingField: {fileID: 11400000, guid: 7e38393988bfca34092fcc4c066b40d7, type: 2}
+  <WhiteTrailColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  <BlackTrailColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}

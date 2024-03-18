@@ -1,3 +1,4 @@
+using System;
 using Common.Containers.GameManagerServices;
 using DG.Tweening;
 using UnityEngine;
@@ -21,6 +22,8 @@ namespace Common.UI
         
         [SerializeField]
         private float _animationDuration = 0.5f;
+
+        public event Action onOpened = () => { };
 
         [Inject]
         public void Construct(IGameManagerService gameManagerService)
@@ -88,6 +91,7 @@ namespace Common.UI
                     {
                         _mainSettingsPanel.DOAnchorPos(_endMainStingsPanel, _animationDuration);
                         _isSettingsPanelOpened = true;
+                        onOpened?.Invoke();
                     }
                 }
                 

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ce43030928444cbf23977d9f325c26, type: 3}
+  m_Name: Sound Pack #3
+  m_EditorClassIdentifier: 
+  _backgroundMusic: {fileID: 8300000, guid: 22e24c464594f0d4890ea453dcafaf28, type: 3}
+  _clips:
+  - {fileID: 8300000, guid: 245965889d0a183438ef3478b27122c0, type: 3}
+  - {fileID: 8300000, guid: 0d54653003bc3524ab6b64cac060bd52, type: 3}
+  - {fileID: 8300000, guid: 7a4c4b5d7ffae4646b53e27c39ffc487, type: 3}
+  - {fileID: 8300000, guid: 89dc6bbba2ae6c54a9e835dbe6fbf288, type: 3}
+  - {fileID: 8300000, guid: 9b05bf85194a6994e87a326b55b12087, type: 3}
+  - {fileID: 8300000, guid: 52104bc3637e70540be457e0ba1ba9cd, type: 3}
+  - {fileID: 8300000, guid: 80d3799791748ac42b3ec097c17a2383, type: 3}
+  - {fileID: 8300000, guid: 4a09040e8e6916c4aae24278581e6b06, type: 3}
+  - {fileID: 8300000, guid: d267264bba550264ea43044cacfb9c62, type: 3}
+  - {fileID: 8300000, guid: aebae0e89d575dc43ae340319487ef87, type: 3}
+  - {fileID: 8300000, guid: 087224dd7ec352f42a3b950a07009a88, type: 3}
+  - {fileID: 8300000, guid: 1dc2f2287b118ff45939a91b08a2244e, type: 3}
+  - {fileID: 8300000, guid: 818ceeca65489e14ab6864f21ac80fd5, type: 3}
+  - {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
+  - {fileID: 8300000, guid: cd7b383f7b2a33e4ab9998acf6a28acf, type: 3}
+  - {fileID: 8300000, guid: 3fbec5a8ff835b34098436a9a752f675, type: 3}
+  - {fileID: 8300000, guid: e5c0b5435124eee4a9bab0e4dc5c16b7, type: 3}
+  - {fileID: 8300000, guid: 3d1fc54a2f6df7840a89b832c0c32427, type: 3}
+  - {fileID: 8300000, guid: 8f829940876ff2d45bd0eaaa967edf2c, type: 3}
+  - {fileID: 8300000, guid: 523924e8918aa8e47a8e695ff5b7a463, type: 3}
+  - {fileID: 8300000, guid: 44a5d716536c11248a09ee1a54d5d168, type: 3}
+  _wallClips:
+  - {fileID: 8300000, guid: 951b96d96188f9640b12fa2d7fade185, type: 3}
+  - {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
+  - {fileID: 8300000, guid: 5aa948679296f2649802b2f562804537, type: 3}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Common.Data
 {
-    [CreateAssetMenu(fileName = "newSoundPack", menuName = "Create Sound Pack", order = 0)]
+    [CreateAssetMenu(fileName = "newSoundPack", menuName = "Sound Pack/Sound Pack", order = 0)]
     public class SoundPackData : ScriptableObject
     {
         [SerializeField] public AudioClip _backgroundMusic;

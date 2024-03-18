@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a41771d72c64ec886818c28d54d1927, type: 3}
+  m_Name: Sound Pack Preset #1
+  m_EditorClassIdentifier: 
+  <SoundPackName>k__BackingField: Yin & Yang pack
+  <SoundLogo>k__BackingField: {fileID: 0}
+  <CircleSize>k__BackingField: 1.5
+  <CellSize>k__BackingField: 3
+  <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 5c7cbbcbc473e144faa3f23179c61e9a, type: 3}
+  <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: d3169bc1219bc0d43a8674a04189cea1, type: 3}
+  <WhiteCellSkin>k__BackingField:
+  - {fileID: 21300000, guid: e2869ee7a42724146b670a79c864162b, type: 3}
+  <BlackCellSkin>k__BackingField:
+  - {fileID: 21300000, guid: 5cb82496beb06bc47b0992d40253d833, type: 3}
+  <SoundPackData>k__BackingField: {fileID: 11400000, guid: 4568277455fa24e45997b0fffa9508b7, type: 2}
+  <WhiteTrailColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  <BlackTrailColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}

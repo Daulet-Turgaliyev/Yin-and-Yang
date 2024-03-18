@@ -1,4 +1,5 @@
 using System;
+using Common.Cell_System;
 using Common.Containers.GameManagerServices;
 using Common.Environment_System;
 using Common.Sounds;
@@ -13,6 +14,8 @@ namespace Common.Circle
         private ISettingsPanelService _settingsService;
         private ISoundManagerService _soundManagerService;
         private IGameManagerService _gameManagerService;
+
+        private SpriteRenderer _spriteRenderer;
         
         [SerializeField]
         private float _speed;
@@ -35,6 +38,7 @@ namespace Common.Circle
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            
             ChoseNewDirection();
         }
 
@@ -46,11 +50,18 @@ namespace Common.Circle
         private void FixedUpdate()
         {
             _rigidbody2D.velocity = _movementDirection * _speed;
+            _rigidbody2D.angularVelocity = _speed * 2;
         }
 
         public void ChangeSpeed(float speed)
         {
             _speed = speed;
+        }
+
+        public void SetSkin(Sprite sprite)
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer.sprite = sprite;
         }
         
         private void ChoseNewDirection()
@@ -69,7 +80,7 @@ namespace Common.Circle
             {
                 cell.ChangeCellState();
             }
-
+            
             if (other.gameObject.CompareTag("Wall"))
             {
                 _soundManagerService.PlayRandomWallSound();
@@ -79,7 +90,7 @@ namespace Common.Circle
             {
                 Vibration.Vibrate(30);
             }
-        
+            
             Vector2 normal = other.contacts[0].normal;
             _movementDirection = Vector2.Reflect(_movementDirection, normal).normalized;
             float randomAngle = Random.Range(-30, 30) * Mathf.Deg2Rad;

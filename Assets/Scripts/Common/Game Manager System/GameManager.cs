@@ -19,7 +19,7 @@ namespace Common.Game_Manager_System
 
         public async void StartInitialize()
         {
-            await Task.Delay(2000);
+            await Task.Delay(1000);
             
             _circleSpawner.SpawnBalls(CircleType.Black, 1);
             _circleSpawner.SpawnBalls(CircleType.White, 1);

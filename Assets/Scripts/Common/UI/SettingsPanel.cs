@@ -3,38 +3,46 @@ using Common.Circle;
 using Common.Containers.GameManagerServices;
 using Common.Game_Manager_System;
 using Common.Sounds;
+using Common.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 
 namespace Common
 {
     public class SettingsPanel : MonoBehaviour, ISettingsPanelService
     {
-        [SerializeField] private GameObject _loadingPanelObject;
-        
         private ICircleSpawnService _circleSpawnService;
         private ISoundManagerService _soundManagerService;
-        
         public bool IsNeedVibration { get; set; }
 
-        public TextMeshProUGUI _soundPackIdText;
+        [SerializeField] private SwipePanel _swipePanel;
 
-        private IGameManagerService _gameManagerService;
+        [SerializeField] private Toggle _toggleVibration;
+        [SerializeField] private Slider _collisionSound;
+        [SerializeField] private Slider _backgroundSound;
+        [SerializeField] private Slider _whiteCountSlide;
+        [SerializeField] private Slider _blackCountSlide;
+   
         
         [Inject]
-        public void Construct(ICircleSpawnService circleSpawnService, IGameManagerService gameManagerService, ISoundManagerService soundManagerService)
+        public void Construct(ICircleSpawnService circleSpawnService, ISoundManagerService soundManagerService)
         {
             _circleSpawnService = circleSpawnService;
-            _gameManagerService = gameManagerService;
             _soundManagerService = soundManagerService;
-            
-            SetSoundPack(0);
         }
 
         private void Start()
         {
-            Destroy(_loadingPanelObject, 2);
+            _swipePanel.onOpened += UpdatePanel;
+
+        }
+
+        private void OnDestroy()
+        {
+            _swipePanel.onOpened -= UpdatePanel;
+
         }
 
         public void StartInitialize()
@@ -45,13 +53,7 @@ namespace Common
         {
             IsNeedVibration = isNeedVibro;
         }
-
-        public void SetSoundPack(float soundPackId)
-        {
-            _soundManagerService.SetIndex(soundPackId);
-            _soundPackIdText.text = soundPackId.ToString("0");
-        }
-
+        
         public void SetWhiteCount(float count)
         {
             _circleSpawnService.SpawnBalls(CircleType.White, (int)count);
@@ -60,10 +62,6 @@ namespace Common
         public void SetBlackCount(float count)
         {
             _circleSpawnService.SpawnBalls(CircleType.Black, (int)count);
-        }
-        public void SetCirclesSpeed(float speed)
-        {
-            _gameManagerService.ChangeCircleSpeed(speed);
         }
         
         public void SetCircleSoundVolume(float volume)
@@ -74,6 +72,15 @@ namespace Common
         public void SetBackgroundVolume(float volume)
         {
             _soundManagerService.SetBackgroundMusicVolume(volume);
+        }
+
+        private void UpdatePanel()
+        {
+            _toggleVibration.isOn = IsNeedVibration;
+            _collisionSound.value = _soundManagerService.CollisionSoundVolume;
+            _backgroundSound.value = _soundManagerService.BackgroundVolume;
+            _whiteCountSlide.value = _circleSpawnService.WhiteCount;
+            _blackCountSlide.value = _circleSpawnService.BlackCount;
         }
     }
 }

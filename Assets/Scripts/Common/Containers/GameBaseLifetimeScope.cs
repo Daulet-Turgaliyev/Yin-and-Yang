@@ -31,8 +31,8 @@ namespace Common.Containers
             builder.RegisterInstance<ISoundManagerService, SoundManager>(_soundManager).AsSelf();
             
             builder.RegisterInstance<ISettingsPanelService, SettingsPanel>(_settingsPanel);
-            
-            builder.RegisterInstance(_gridSpawner).AsSelf();
+
+            builder.RegisterInstance<ICellSpawnerService, GridSpawner>(_gridSpawner);
             
             builder.RegisterEntryPoint<GameInitializer>();
         }
