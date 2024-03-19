@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sound PackPreset #3
   m_EditorClassIdentifier: 
   <SoundPackName>k__BackingField: Office
-  <SoundLogo>k__BackingField: {fileID: 0}
+  <SoundLogo>k__BackingField: {fileID: 21300000, guid: 7cd7049716241f247b23f02665c1e0ca, type: 3}
   <CircleSize>k__BackingField: 2.2
   <CellSize>k__BackingField: 10
   <RotationMode>k__BackingField: 0

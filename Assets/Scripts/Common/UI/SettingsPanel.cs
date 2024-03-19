@@ -15,6 +15,7 @@ namespace Common
     {
         private ICircleSpawnService _circleSpawnService;
         private ISoundManagerService _soundManagerService;
+        private IGameManagerService _gameManagerService;
         public bool IsNeedVibration { get; set; }
 
         [SerializeField] private SwipePanel _swipePanel;
@@ -24,13 +25,15 @@ namespace Common
         [SerializeField] private Slider _backgroundSound;
         [SerializeField] private Slider _whiteCountSlide;
         [SerializeField] private Slider _blackCountSlide;
+        [SerializeField] private Slider _circleSpeedSlide;
    
         
         [Inject]
-        public void Construct(ICircleSpawnService circleSpawnService, ISoundManagerService soundManagerService)
+        public void Construct(ICircleSpawnService circleSpawnService, ISoundManagerService soundManagerService, IGameManagerService gameManagerService)
         {
             _circleSpawnService = circleSpawnService;
             _soundManagerService = soundManagerService;
+            _gameManagerService = gameManagerService;
         }
 
         private void Start()
@@ -79,6 +82,11 @@ namespace Common
             _circleSpawnService.SpawnBalls(CircleType.Black, (int)count);
         }
         
+        public void SetCircleSpeed(float speed)
+        {
+            _gameManagerService.ChangeCircleSpeed(speed);
+        }
+        
         public void SetCircleSoundVolume(float volume)
         {
             _soundManagerService.SetCircleSoundVolume(volume);
@@ -96,6 +104,7 @@ namespace Common
             _backgroundSound.value = _soundManagerService.BackgroundVolume;
             _whiteCountSlide.value = _circleSpawnService.WhiteCount;
             _blackCountSlide.value = _circleSpawnService.BlackCount;
+            _circleSpeedSlide.value = _gameManagerService.CurrentSpeed;
         }
     }
 }

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: We recommend using headphones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5094b715585444e90b7306721788dae5, type: 2}
-  m_sharedMaterial: {fileID: 2393364598115949451, guid: 5094b715585444e90b7306721788dae5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ea05cc43a338d3d4389358571f34e3ce, type: 2}
+  m_sharedMaterial: {fileID: 4571996589146777564, guid: ea05cc43a338d3d4389358571f34e3ce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -456,8 +456,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LOADING
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5094b715585444e90b7306721788dae5, type: 2}
-  m_sharedMaterial: {fileID: 2393364598115949451, guid: 5094b715585444e90b7306721788dae5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a071011ea437b0148822f1e2088e9aec, type: 2}
+  m_sharedMaterial: {fileID: -391067707917835596, guid: a071011ea437b0148822f1e2088e9aec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

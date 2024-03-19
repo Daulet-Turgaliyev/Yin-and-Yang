@@ -2,6 +2,7 @@ using Common.Data;
 using Common.GlobalScene;
 using Common.Main_Menu;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace Common.UI
@@ -10,10 +11,12 @@ namespace Common.UI
     {
         [SerializeField] private CanvasGroup _startPanelCanvasGroup;
         [SerializeField] private CanvasGroup _levelPanelCanvasGroup;
+        [SerializeField] private TextMeshProUGUI _versionText;
 
         private void Start()
         {
-            _startPanelCanvasGroup.DOFade(1, 1);
+            _startPanelCanvasGroup.DOFade(1, 1).OnComplete(OpenLevelSelect);
+            _versionText.text = Application.version;
         }
 
         public void OpenLevelSelect()
