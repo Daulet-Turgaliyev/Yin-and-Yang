@@ -56,8 +56,15 @@ namespace Common.Circle
             _rotationMode = soundPackPreset.RotationMode;
 
             ChoseNewDirection();
-            
-            Instantiate(trailRendererPrefab.gameObject, transform);
+
+            if (trailRendererPrefab != null)
+            {
+                Instantiate(trailRendererPrefab.gameObject, transform);
+            }
+            else
+            {
+                Debug.LogWarning("Traill Prefab is null");
+            }
             
             switch (_rotationMode)
             {
