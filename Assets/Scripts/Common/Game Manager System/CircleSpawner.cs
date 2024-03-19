@@ -67,7 +67,8 @@ namespace Common.Game_Manager_System
                 
                 ACircleController aCircleControllerPrefab = circleType == CircleType.White ? _whiteCircleControllerPrefab : _blackCircleControllerPrefab;
                 var circle = _objectResolver.Instantiate(aCircleControllerPrefab, randomSpawnPos, Quaternion.identity);
-                circle.SetSkin(circleType == CircleType.White ? _whiteSprite : _blackSprite);
+                Sprite skinSprite = circleType == CircleType.White ? _whiteSprite : _blackSprite;
+                circle.Initialize(_soundPackPreset, skinSprite);
                 circle.transform.localScale = Vector3.one * _soundPackPreset.CircleSize;
                 CircleCounter.Add(circle);
             }

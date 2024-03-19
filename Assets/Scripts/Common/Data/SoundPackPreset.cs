@@ -10,6 +10,7 @@ namespace Common.Data
         
         [field: SerializeField] public float CircleSize { get; private set; }
         [field: SerializeField] public float CellSize { get; private set; }
+        [field: SerializeField] public RotationMode RotationMode { get; private set; }
         
         [field: SerializeField] public Sprite WhiteCircleSkin { get; private set; }
         [field: SerializeField] public Sprite BlackCircleSkin { get; private set; }

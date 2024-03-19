@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/SkinResource/
+Assets/Plugins/iOS/
+Assets/Plugins/tvOS/Firebase/libFirebaseCppAnalytics.a.meta
+Assets/Plugins/tvOS/Firebase.meta
+Assets/Firebase/
+Assets/Plugins/tvOS
+Assets/GeneratedLocalRepo

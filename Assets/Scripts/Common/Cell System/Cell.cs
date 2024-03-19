@@ -16,7 +16,6 @@ namespace Common.Cell_System
         
         public ReactiveProperty<CellState> cellState { get; } = new();
     
-        private CellCounter _cellCounter;
     
         private void Awake()
         {
@@ -30,9 +29,8 @@ namespace Common.Cell_System
             _blackSprite = blackSprite;
         }
         
-        public void SetCellState(CellState cellState, CellCounter counter)
+        public void SetCellState(CellState cellState)
         {
-            _cellCounter = counter;
             this.cellState.Value = cellState;
         
             ChangeCellState();
@@ -51,8 +49,6 @@ namespace Common.Cell_System
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        
-            _cellCounter.ChangeScore(cellState.Value);
         }
 
         private void SetBlackCell()

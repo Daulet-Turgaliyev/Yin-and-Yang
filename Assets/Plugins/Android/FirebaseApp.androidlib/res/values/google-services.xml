@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">326287916758</string>
+  <string name="google_storage_bucket" translatable="false">yin-and-yang-a4f84.appspot.com</string>
+  <string name="project_id" translatable="false">yin-and-yang-a4f84</string>
+  <string name="google_api_key" translatable="false">AIzaSyDA6uSDan81FQZxOUV9ZQ2_pMcQToHSuY8</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDA6uSDan81FQZxOUV9ZQ2_pMcQToHSuY8</string>
+  <string name="google_app_id" translatable="false">1:326287916758:android:dee91244c179f2b6b85377</string>
+</resources>

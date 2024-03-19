@@ -18,8 +18,6 @@ namespace Common.Game_Manager_System
         
         private float _cellSize;
         
-        [SerializeField] private CellCounter _cellCounter;
-
         [SerializeField] private GameObject _wallPrefab;
 
         private SoundPackPreset _soundPackPreset;
@@ -65,15 +63,13 @@ namespace Common.Game_Manager_System
                     cell.transform.localScale = Vector3.one * _cellSize; 
                     if (spawnPosition.x < 0)
                     {
-                        _cellCounter.AddWhite();
                         cell.Initialize(_soundPackPreset.GetRandomWhiteCellSkin(), _soundPackPreset.GetRandomBlackCellSkin(), squaresY - 1 - y); // Измените y на squaresY - 1 - y, если хотите сохранить исходное поведение
-                        cell.SetCellState(CellState.White, _cellCounter);
+                        cell.SetCellState(CellState.White);
                     }
                     else
                     {
-                        _cellCounter.AddBlack();
                         cell.Initialize(_soundPackPreset.GetRandomWhiteCellSkin(), _soundPackPreset.GetRandomBlackCellSkin(), squaresY - 1 - y); // Аналогично измените y здесь
-                        cell.SetCellState(CellState.Black, _cellCounter);
+                        cell.SetCellState(CellState.Black);
                     }
                     cell.transform.SetParent(transform);
                     cell.cellState.OnChanged += _soundManagerService.PlayRandomSound;

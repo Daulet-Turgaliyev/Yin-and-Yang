@@ -37,6 +37,21 @@ namespace Common
         {
             _swipePanel.onOpened += UpdatePanel;
 
+            float colissionSoundVolume = 1;
+            float backgroundnSoundVolume = 1;
+
+            if (PlayerPrefs.HasKey("COLLISION_SOUND"))
+            {
+                colissionSoundVolume = PlayerPrefs.GetFloat("COLLISION_SOUND");
+            }
+            
+            if (PlayerPrefs.HasKey("BACKGROUND_SOUND"))
+            {
+                backgroundnSoundVolume = PlayerPrefs.GetFloat("BACKGROUND_SOUND");
+            }
+            
+            SetCircleSoundVolume(colissionSoundVolume);
+            SetBackgroundVolume(backgroundnSoundVolume);
         }
 
         private void OnDestroy()

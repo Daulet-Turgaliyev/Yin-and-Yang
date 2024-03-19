@@ -36,6 +36,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 523924e8918aa8e47a8e695ff5b7a463, type: 3}
   - {fileID: 8300000, guid: 44a5d716536c11248a09ee1a54d5d168, type: 3}
   _wallClips:
-  - {fileID: 8300000, guid: 951b96d96188f9640b12fa2d7fade185, type: 3}
-  - {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
-  - {fileID: 8300000, guid: 5aa948679296f2649802b2f562804537, type: 3}
+  - {fileID: 8300000, guid: 7e5745afffbcd0e4aaa8fce19523a3d2, type: 3}

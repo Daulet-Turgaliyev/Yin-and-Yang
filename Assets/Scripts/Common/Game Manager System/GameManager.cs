@@ -13,9 +13,16 @@ namespace Common.Game_Manager_System
         public GameManager(ICircleSpawnService circleSpawner)
         {
             _circleSpawner = circleSpawner;
+            CurrentSpeed = 25;
         }
 
-        public float CurrentSpeed { get; set; }
+        public float CurrentSpeed
+        {
+            get => _globalSpeed;
+            set => _globalSpeed = Mathf.Clamp(value, 1f, 200);
+        }
+
+        private float _globalSpeed;
 
         public async void StartInitialize()
         {
@@ -30,25 +37,21 @@ namespace Common.Game_Manager_System
             CurrentSpeed = newSpeed;
             
             foreach (var circle in _circleSpawner.CircleCounter.WhiteCirclesOnScene)
-                circle.ChangeSpeed(newSpeed);
+                circle.ChangeSpeed(CurrentSpeed);
             
             foreach (var circle in _circleSpawner.CircleCounter.BlackCirclesOnScene)
-                circle.ChangeSpeed(newSpeed);
+                circle.ChangeSpeed(CurrentSpeed);
         }
 
         public void ChangeUpSpeed(float newSpeed)
         {
             CurrentSpeed += newSpeed;
-            CurrentSpeed = Mathf.Clamp(CurrentSpeed, 1f, 450f);
-
             ChangeCircleSpeed(CurrentSpeed);
         }
 
         public void ChangeDownSpeed(float newSpeed)
         {
             CurrentSpeed -= newSpeed;
-            CurrentSpeed = Mathf.Clamp(CurrentSpeed, 1f, 450f);
-            
             ChangeCircleSpeed(CurrentSpeed);
         }
     }

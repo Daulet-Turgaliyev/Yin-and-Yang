@@ -437,6 +437,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3b34e6be12d06d4489f692218c96e90, type: 2}
   - {fileID: 11400000, guid: 5faa75fd00752764397363b11ea4e7d7, type: 2}
   - {fileID: 11400000, guid: 9769e2a48c69a0243acb7576aa853b23, type: 2}
+  - {fileID: 11400000, guid: e249ec3163692f748a283ec7c9e21ff3, type: 2}
   _soundPackElement: {fileID: 4653373248577965689, guid: 5e0eb2ca09aad5546a62859e9c36bb97, type: 3}
 --- !u!1 &533829074
 GameObject:
@@ -787,7 +788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.013319529}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1101800833
@@ -899,7 +900,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1716585082}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99493796
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1044,8 +1045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -143}
-  m_SizeDelta: {x: 753.476, y: 187.2515}
+  m_AnchoredPosition: {x: 0, y: -391}
+  m_SizeDelta: {x: 753.476, y: 636.4526}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534200868
 MonoBehaviour:
@@ -1067,12 +1068,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Yin and Yang
-
-    Balance of life'
+  m_text: "Yin & Yang\nBalance \nin life"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5094b715585444e90b7306721788dae5, type: 2}
-  m_sharedMaterial: {fileID: 2393364598115949451, guid: 5094b715585444e90b7306721788dae5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1096,8 +1095,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.9
-  m_fontSizeBase: 77.9
+  m_fontSize: 147.39
+  m_fontSizeBase: 147.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1346,7 +1345,7 @@ RectTransform:
   m_Father: {fileID: 209969277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0.99493796}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1450,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3152910627354032428, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 3152910627354032428, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1515,7 +1514,19 @@ PrefabInstance:
     - target: {fileID: 3152910627354032430, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ffa3747042fd544e0b172edda22f8eae, type: 3}
+      objectReference: {fileID: 21300000, guid: e2d313b6eccca443b8ccc560f6360e58, type: 3}
+    - target: {fileID: 3152910627354032430, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21698111
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152910627354032430, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21698111
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152910627354032430, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21698111
+      objectReference: {fileID: 0}
     - target: {fileID: 3152910627354032431, guid: e2f932aa87ac44066b8fd8afe3077683, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

@@ -28,6 +28,7 @@ namespace Common.Environment_System
         public void Initialize(SoundPackPreset soundPackPreset)
         {
             _soundPacks = soundPackPreset.SoundPackData;
+            PlayBackgroundSound();
         }
 
         public void PlayRandomSound()
@@ -43,11 +44,15 @@ namespace Common.Environment_System
         public void SetBackgroundMusicVolume(float volume)
         {
             _backGroundAudioSource.volume = volume;
+            PlayerPrefs.SetFloat("BACKGROUND_SOUND", volume);
+            PlayerPrefs.Save();
         }
 
         public void SetCircleSoundVolume(float volume)
         {
             _audioSource.volume = volume;
+            PlayerPrefs.SetFloat("COLLISION_SOUND", volume);
+            PlayerPrefs.Save();
         }
     }
 }

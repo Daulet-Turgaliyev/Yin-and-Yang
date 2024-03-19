@@ -2,6 +2,7 @@ using System;
 using Common.Containers.GameManagerServices;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 namespace Common.UI
@@ -36,7 +37,7 @@ namespace Common.UI
             _startMainStingsPanel = _mainSettingsPanel.anchoredPosition;
         }
 
-        public void CloseMainSettingsPanel()
+        private void CloseMainSettingsPanel()
         {
             _isSettingsPanelOpened = false;
             _mainSettingsPanel.DOKill();
@@ -93,6 +94,10 @@ namespace Common.UI
                         _isSettingsPanelOpened = true;
                         onOpened?.Invoke();
                     }
+                    else
+                    {
+                        CloseMainSettingsPanel();
+                    }
                 }
                 
                 fingerUpPosition = fingerDownPosition;
@@ -124,5 +129,9 @@ namespace Common.UI
             return Mathf.Abs(fingerDownPosition.x - fingerUpPosition.x);
         }
 
+        public void GoToMenu()
+        {
+            GlobalScene.GlobalSceneManager.LoadSceneAsync("MenuScene");
+        }
     }
 }

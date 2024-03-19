@@ -16,6 +16,7 @@ MonoBehaviour:
   <SoundLogo>k__BackingField: {fileID: 0}
   <CircleSize>k__BackingField: 2.2
   <CellSize>k__BackingField: 10
+  <RotationMode>k__BackingField: 0
   <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 81afa0b05cfb30341b1f4d1b177f358c, type: 3}
   <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: ec64a382891d29c49b2a0921ece3900f, type: 3}
   <WhiteCellSkin>k__BackingField:

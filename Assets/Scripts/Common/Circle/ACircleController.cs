@@ -1,8 +1,12 @@
 using System;
+using System.Collections;
 using Common.Cell_System;
 using Common.Containers.GameManagerServices;
+using Common.Data;
 using Common.Environment_System;
 using Common.Sounds;
+using Cysharp.Threading.Tasks;
+using Tools;
 using UnityEngine;
 using VContainer;
 using Random = UnityEngine.Random;
@@ -19,6 +23,8 @@ namespace Common.Circle
         
         [SerializeField]
         private float _speed;
+
+        private RotationMode _rotationMode;
     
         private Vector2 _movementDirection;
 
@@ -42,15 +48,52 @@ namespace Common.Circle
             ChoseNewDirection();
         }
 
-        private void Start()
+        public void Initialize(SoundPackPreset soundPackPreset, Sprite sprite)
         {
+            SetSkin(sprite);
+            
             ChangeSpeed(_gameManagerService.CurrentSpeed);
+            _rotationMode = soundPackPreset.RotationMode;
+            
+            switch (_rotationMode)
+            {
+                case RotationMode.Random:
+                    StartCoroutine(RotationRandom());
+                    break;
+                case RotationMode.Direction:
+                    StartCoroutine(RotationDirection());
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
-        private void FixedUpdate()
+        private IEnumerator RotationRandom()
         {
-            _rigidbody2D.velocity = _movementDirection * _speed;
-            _rigidbody2D.angularVelocity = _speed * 2;
+            while (true)
+            {
+                _rigidbody2D.angularVelocity = _speed * 2;
+                _rigidbody2D.velocity = _movementDirection * _speed;
+                yield return Yielders.FixedUpdate;
+            }
+        }
+        
+        
+        private IEnumerator RotationDirection()
+        {
+            while (gameObject.GetCancellationTokenOnDestroy().IsCancellationRequested == false)
+            {
+                _rigidbody2D.velocity = _movementDirection * _speed;
+
+
+                if (_rigidbody2D.velocity != Vector2.zero)
+                {
+                    float angle = Mathf.Atan2(_rigidbody2D.velocity.y, _rigidbody2D.velocity.x) * Mathf.Rad2Deg;
+                    _rigidbody2D.rotation = angle;
+                }
+                
+                yield return Yielders.FixedUpdate;
+            }
         }
 
         public void ChangeSpeed(float speed)
@@ -58,7 +101,7 @@ namespace Common.Circle
             _speed = speed;
         }
 
-        public void SetSkin(Sprite sprite)
+        private void SetSkin(Sprite sprite)
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.sprite = sprite;
@@ -98,4 +141,10 @@ namespace Common.Circle
                 Mathf.Sin(randomAngle) * _movementDirection.x + Mathf.Cos(randomAngle) * _movementDirection.y).normalized;
         }
     }
+}
+
+public enum RotationMode
+{
+    Random,
+    Direction
 }
