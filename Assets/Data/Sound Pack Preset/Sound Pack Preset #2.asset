@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sound Pack Preset #2
   m_EditorClassIdentifier: 
   <SoundPackName>k__BackingField: Mahjong
-  <SoundLogo>k__BackingField: {fileID: 0}
+  <SoundLogo>k__BackingField: {fileID: 21300000, guid: 42e90eeca86cd5b44b3044e033535c90, type: 3}
   <CircleSize>k__BackingField: 2.2
   <CellSize>k__BackingField: 6
   <RotationMode>k__BackingField: 0
@@ -72,5 +72,5 @@ MonoBehaviour:
   - {fileID: 410359754, guid: e3a65434159d4e743953e446eff2f1fc, type: 3}
   - {fileID: -629874718, guid: e3a65434159d4e743953e446eff2f1fc, type: 3}
   <SoundPackData>k__BackingField: {fileID: 11400000, guid: e27439a0104c04d45bcdf920e211c0d6, type: 2}
-  <WhiteTrailPrefabs>k__BackingField: {fileID: 3636023873111581324, guid: 86c214ab943f79e4197965ff95314637, type: 3}
-  <BlackTrailPrefabs>k__BackingField: {fileID: 3636023873111581324, guid: 892071a1b2a3c4c40894fa0efdb13c70, type: 3}
+  <WhiteTrailPrefabs>k__BackingField: {fileID: 0}
+  <BlackTrailPrefabs>k__BackingField: {fileID: 0}
