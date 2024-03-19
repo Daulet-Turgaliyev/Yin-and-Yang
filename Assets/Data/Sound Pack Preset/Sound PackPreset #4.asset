@@ -24,5 +24,5 @@ MonoBehaviour:
   <BlackCellSkin>k__BackingField:
   - {fileID: 467610227, guid: a0c7d875fed703940bc30e682b5d96d0, type: 3}
   <SoundPackData>k__BackingField: {fileID: 11400000, guid: 45bd5dfcfa17bb24b9c5c740b00e7305, type: 2}
-  <WhiteTrailColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-  <BlackTrailColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
+  <WhiteTrailPrefabs>k__BackingField: {fileID: 3636023873111581324, guid: f55571db541dba4488a54313adf256d0, type: 3}
+  <BlackTrailPrefabs>k__BackingField: {fileID: 3636023873111581324, guid: 7d718488ca9b34a4ab3068559ca2fb4e, type: 3}

@@ -58,17 +58,16 @@ namespace Common.Game_Manager_System
             
             for (int i = 0; i < spawnCount; i++)
             {
-                Vector3 randomSpawnPos;
-
-                randomSpawnPos = circleType == CircleType.White ?
+                var randomSpawnPos = circleType == CircleType.White ?
                     new Vector3(Random.Range(-5, -1), Random.Range(-3, 3)) : 
                     new Vector3(Random.Range(1, 5), Random.Range(-3, 3));
                 
                 
                 ACircleController aCircleControllerPrefab = circleType == CircleType.White ? _whiteCircleControllerPrefab : _blackCircleControllerPrefab;
                 var circle = _objectResolver.Instantiate(aCircleControllerPrefab, randomSpawnPos, Quaternion.identity);
-                Sprite skinSprite = circleType == CircleType.White ? _whiteSprite : _blackSprite;
-                circle.Initialize(_soundPackPreset, skinSprite);
+                var skinSprite = circleType == CircleType.White ? _whiteSprite : _blackSprite;
+                var trailRendererPrefab = circleType == CircleType.White ? _soundPackPreset.WhiteTrailPrefabs : _soundPackPreset.BlackTrailPrefabs;
+                circle.Initialize(_soundPackPreset, skinSprite, trailRendererPrefab);
                 circle.transform.localScale = Vector3.one * _soundPackPreset.CircleSize;
                 CircleCounter.Add(circle);
             }

@@ -40,5 +40,5 @@ MonoBehaviour:
   - {fileID: 17227011, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
   - {fileID: -26981868, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
   <SoundPackData>k__BackingField: {fileID: 11400000, guid: 7e38393988bfca34092fcc4c066b40d7, type: 2}
-  <WhiteTrailColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-  <BlackTrailColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
+  <WhiteTrailPrefabs>k__BackingField: {fileID: 3636023873111581324, guid: 86c214ab943f79e4197965ff95314637, type: 3}
+  <BlackTrailPrefabs>k__BackingField: {fileID: 3636023873111581324, guid: 892071a1b2a3c4c40894fa0efdb13c70, type: 3}

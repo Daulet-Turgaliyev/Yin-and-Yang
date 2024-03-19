@@ -20,8 +20,8 @@ namespace Common.Data
         
         [field: SerializeField] public SoundPackData SoundPackData { get; private set; }
         
-        [field: SerializeField] public Color WhiteTrailColor { get; private set; }
-        [field: SerializeField] public Color BlackTrailColor { get; private set; }
+        [field: SerializeField] public TrailRenderer WhiteTrailPrefabs { get; private set; }
+        [field: SerializeField] public TrailRenderer BlackTrailPrefabs { get; private set; }
 
         public Sprite GetRandomWhiteCellSkin()
         {

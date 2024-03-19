@@ -29,7 +29,7 @@ namespace Common.Circle
         private Vector2 _movementDirection;
 
         private Rigidbody2D _rigidbody2D;
-
+        
         [Inject]
         public void Constructor(
             ISettingsPanelService settingsService,
@@ -48,12 +48,16 @@ namespace Common.Circle
             ChoseNewDirection();
         }
 
-        public void Initialize(SoundPackPreset soundPackPreset, Sprite sprite)
+        public void Initialize(SoundPackPreset soundPackPreset, Sprite sprite, TrailRenderer trailRendererPrefab)
         {
             SetSkin(sprite);
             
             ChangeSpeed(_gameManagerService.CurrentSpeed);
             _rotationMode = soundPackPreset.RotationMode;
+
+            ChoseNewDirection();
+            
+            Instantiate(trailRendererPrefab.gameObject, transform);
             
             switch (_rotationMode)
             {
@@ -89,7 +93,7 @@ namespace Common.Circle
                 if (_rigidbody2D.velocity != Vector2.zero)
                 {
                     float angle = Mathf.Atan2(_rigidbody2D.velocity.y, _rigidbody2D.velocity.x) * Mathf.Rad2Deg;
-                    _rigidbody2D.rotation = angle;
+                    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 }
                 
                 yield return Yielders.FixedUpdate;
@@ -131,7 +135,7 @@ namespace Common.Circle
 
             if (_settingsService.IsNeedVibration == true)
             {
-                Vibration.Vibrate(30);
+                Vibration.Vibrate(10);
             }
             
             Vector2 normal = other.contacts[0].normal;
