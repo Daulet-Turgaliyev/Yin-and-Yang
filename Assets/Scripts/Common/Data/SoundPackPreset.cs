@@ -9,7 +9,9 @@ namespace Common.Data
         [field: SerializeField] public Sprite SoundLogo { get; private set; }
         
         [field: SerializeField] public float CircleSize { get; private set; }
-        [field: SerializeField] public float CellSize { get; private set; }
+        [field: SerializeField] public Vector2 CellSize { get; private set; }
+        [field: SerializeField] public Vector2 CellSpacing { get; private set; }
+        [field: SerializeField] public SpawnDirection SpawnDirection { get; private set; }
         [field: SerializeField] public RotationMode RotationMode { get; private set; }
         
         [field: SerializeField] public Sprite WhiteCircleSkin { get; private set; }
@@ -33,5 +35,11 @@ namespace Common.Data
             int randomIndex = Random.Range(0, BlackCellSkin.Length);
             return BlackCellSkin[randomIndex];
         }
+    }
+
+    public enum SpawnDirection
+    {
+        LeftToRight,
+        RightToLeft
     }
 }

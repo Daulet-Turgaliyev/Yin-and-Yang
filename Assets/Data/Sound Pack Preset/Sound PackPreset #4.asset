@@ -15,7 +15,7 @@ MonoBehaviour:
   <SoundPackName>k__BackingField: Pooltable
   <SoundLogo>k__BackingField: {fileID: 21300000, guid: 2c9165e40290dfd4d88d436defeaeb69, type: 3}
   <CircleSize>k__BackingField: 2.2
-  <CellSize>k__BackingField: 8
+  <CellSize>k__BackingField: {x: 8, y: 8}
   <RotationMode>k__BackingField: 1
   <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 46e49cd795f5956408c0ba0f538fec1a, type: 3}
   <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: a2178a82c1179eb418564253fed70d67, type: 3}

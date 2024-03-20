@@ -15,7 +15,7 @@ MonoBehaviour:
   <SoundPackName>k__BackingField: Yin & Yang pack
   <SoundLogo>k__BackingField: {fileID: 21300000, guid: 9f8a88ce6b815fa479ac3029e8373d0f, type: 3}
   <CircleSize>k__BackingField: 1.5
-  <CellSize>k__BackingField: 3
+  <CellSize>k__BackingField: {x: 3, y: 3}
   <RotationMode>k__BackingField: 0
   <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 5c7cbbcbc473e144faa3f23179c61e9a, type: 3}
   <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: d3169bc1219bc0d43a8674a04189cea1, type: 3}

@@ -439,6 +439,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5faa75fd00752764397363b11ea4e7d7, type: 2}
   - {fileID: 11400000, guid: 9769e2a48c69a0243acb7576aa853b23, type: 2}
   - {fileID: 11400000, guid: e249ec3163692f748a283ec7c9e21ff3, type: 2}
+  - {fileID: 11400000, guid: ac30b460099032044b67dfb9fd356cd9, type: 2}
+  - {fileID: 11400000, guid: 27f0656942ae7864da42e981a1bf85f6, type: 2}
   _soundPackElement: {fileID: 4653373248577965689, guid: 5e0eb2ca09aad5546a62859e9c36bb97, type: 3}
 --- !u!225 &432648696
 CanvasGroup:

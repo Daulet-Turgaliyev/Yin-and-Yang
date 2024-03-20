@@ -15,7 +15,9 @@ MonoBehaviour:
   <SoundPackName>k__BackingField: Mahjong
   <SoundLogo>k__BackingField: {fileID: 21300000, guid: 42e90eeca86cd5b44b3044e033535c90, type: 3}
   <CircleSize>k__BackingField: 2.2
-  <CellSize>k__BackingField: 6
+  <CellSize>k__BackingField: {x: 6, y: 6}
+  <CellSpacing>k__BackingField: {x: 0, y: 0}
+  <SpawnDirection>k__BackingField: 0
   <RotationMode>k__BackingField: 0
   <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 8c53d100b4618e841a4f8ea37cad2da9, type: 3}
   <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: e1a5edf5fe18a9145b9e3db7700c4551, type: 3}

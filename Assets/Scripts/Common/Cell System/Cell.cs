@@ -24,7 +24,7 @@ namespace Common.Cell_System
 
         public void Initialize(Sprite whiteSprite, Sprite blackSprite, int orderInLayer)
         {
-            _spriteRenderer.sortingOrder = orderInLayer;
+             _spriteRenderer.sortingOrder = orderInLayer;
             _whiteSprite = whiteSprite;
             _blackSprite = blackSprite;
         }
