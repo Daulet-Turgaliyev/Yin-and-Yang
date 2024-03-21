@@ -16,11 +16,10 @@ namespace Common.UI
         
         private void Start()
         {
-
+            _versionText.text = Application.version;
             if (GlobalSceneManager.HasActivated == false)
             {
                 _startPanelCanvasGroup.DOFade(1, 1).OnComplete(OpenLevelSelect);
-                _versionText.text = Application.version;
                 GlobalSceneManager.HasActivated = true;
             }
             else
