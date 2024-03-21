@@ -11,7 +11,6 @@ namespace Common.Game_Manager_System
 {
     public class GridSpawner : MonoBehaviour, ICellSpawnerService
     {
-        [SerializeField]
         private Cell _cellPrefab; 
         
         private ISoundManagerService _soundManagerService;
@@ -37,7 +36,8 @@ namespace Common.Game_Manager_System
             _spawnDirection = soundPackPreset.SpawnDirection;
             _cellSize = soundPackPreset.CellSize;
             _spacing = soundPackPreset.CellSpacing;
-            
+
+            _cellPrefab = soundPackPreset.CellPrefab;
             
             SpawnSquares();
         }
@@ -52,10 +52,10 @@ namespace Common.Game_Manager_System
 
     
             // Расчет и спавн стен вдоль границ камеры
-            CreateWall(new Vector2(bottomLeft.x, (bottomLeft.y + topRight.y) / 2), new Vector2(_cellSize.x / 2, topRight.y - bottomLeft.y)); // Левая стена
-            CreateWall(new Vector2(topRight.x, (bottomLeft.y + topRight.y) / 2), new Vector2(_cellSize.x / 2, topRight.y - bottomLeft.y)); // Правая стена
-            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, bottomLeft.y), new Vector2(topRight.x - bottomLeft.x, _cellSize.y / 2)); // Нижняя стена
-            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, topRight.y), new Vector2(topRight.x - bottomLeft.x, _cellSize.y/ 2)); // Верхняя стена
+            CreateWall(new Vector2(bottomLeft.x, (bottomLeft.y + topRight.y) / 2), new Vector2(.5f, topRight.y - bottomLeft.y)); // Левая стена
+            CreateWall(new Vector2(topRight.x, (bottomLeft.y + topRight.y) / 2), new Vector2(.5f, topRight.y - bottomLeft.y)); // Правая стена
+            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, bottomLeft.y), new Vector2(topRight.x - bottomLeft.x, .5f)); // Нижняя стена
+            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, topRight.y), new Vector2(topRight.x - bottomLeft.x, .5f)); // Верхняя стена
 
 
             int orderInLayer = 0;

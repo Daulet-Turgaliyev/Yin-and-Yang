@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SoundPackName>k__BackingField: Office
   <SoundLogo>k__BackingField: {fileID: 21300000, guid: 7cd7049716241f247b23f02665c1e0ca, type: 3}
-  <CircleSize>k__BackingField: 2.2
+  <CircleSize>k__BackingField: 5.5
   <CellSize>k__BackingField: {x: 10, y: 10}
+  <CellSpacing>k__BackingField: {x: 0, y: 0}
+  <SpawnDirection>k__BackingField: 0
   <RotationMode>k__BackingField: 0
   <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: 81afa0b05cfb30341b1f4d1b177f358c, type: 3}
   <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: ec64a382891d29c49b2a0921ece3900f, type: 3}
@@ -40,5 +42,6 @@ MonoBehaviour:
   - {fileID: 17227011, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
   - {fileID: -26981868, guid: 0840df0621fa6e445b0e30d9eeadfa9f, type: 3}
   <SoundPackData>k__BackingField: {fileID: 11400000, guid: 7e38393988bfca34092fcc4c066b40d7, type: 2}
-  <WhiteTrailPrefabs>k__BackingField: {fileID: 0}
-  <BlackTrailPrefabs>k__BackingField: {fileID: 0}
+  <CellPrefab>k__BackingField: {fileID: 6365035390096747146, guid: abfc5831a831dee409e87adf099ed268, type: 3}
+  <WhiteCircleController>k__BackingField: {fileID: 5665972039265458688, guid: 9e416bd8b0fdd1341850eb9df8ceca42, type: 3}
+  <BlackCircleController>k__BackingField: {fileID: 1805028656939093839, guid: 300ef1185ef315442931b29e10583585, type: 3}

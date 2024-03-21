@@ -872,7 +872,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 200
+  m_MaxValue: 150
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -2918,8 +2918,6 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 2061302493}
   - {fileID: 169018582}
-  _whiteCircleController: {fileID: 5665972039265458688, guid: 265dabaed900a0c4cba954a3de771c29, type: 3}
-  _blackCircleController: {fileID: 1805028656939093839, guid: e22955992fe9d3840a7a32611bd80b21, type: 3}
   _soundManager: {fileID: 653647024}
   _settingsPanel: {fileID: 169018588}
   _gridSpawner: {fileID: 2061302496}
@@ -4795,7 +4793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c6f9c6f585332428fb16642daed6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cellPrefab: {fileID: 6365035390096747146, guid: 24c45ea99f7ff694990aabbd0b0d6284, type: 3}
   _wallPrefab: {fileID: 7251984522251867204, guid: 56a0f127800da4549824c1e7aec6fbba, type: 3}
 --- !u!1 &2111462660
 GameObject:
