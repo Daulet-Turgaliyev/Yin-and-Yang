@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a41771d72c64ec886818c28d54d1927, type: 3}
+  m_Name: Sound PackPreset #6
+  m_EditorClassIdentifier: 
+  <SoundPackName>k__BackingField: Bubble Wrap
+  <SoundLogo>k__BackingField: {fileID: 21300000, guid: 480261baa5f11fe4b88cecfaf1b2ac80, type: 3}
+  <CircleSize>k__BackingField: 6
+  <CellSize>k__BackingField: {x: 6, y: 6}
+  <CellSpacing>k__BackingField: {x: 0, y: 0}
+  <SpawnDirection>k__BackingField: 1
+  <RotationMode>k__BackingField: 1
+  <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: cb530910337ec5e4fa7c17a30f9fe717, type: 3}
+  <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: e028b8a85314e7a4795b6f98dd68c610, type: 3}
+  <WhiteCellSkin>k__BackingField:
+  - {fileID: -1900919325, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: -1594531217, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: -1789816474, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: -171168244, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: 941649419, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: 1871025038, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: -1500569401, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: -348277765, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  - {fileID: 569074336, guid: 528fe87e597adc84381844a4f0ef6bea, type: 3}
+  <BlackCellSkin>k__BackingField:
+  - {fileID: -867046082, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -1387112772, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: 300553148, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -680143985, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -710625443, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -463418948, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -917523901, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -180056434, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  - {fileID: -1548792224, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
+  <SoundPackData>k__BackingField: {fileID: 11400000, guid: 573e21347839a6547ba1dc5ba3c1e394, type: 2}
+  <CellPrefab>k__BackingField: {fileID: 6365035390096747146, guid: 81008c928756c8442abb43cf506f3026, type: 3}
+  <WhiteCircleController>k__BackingField: {fileID: 1693190547047130533, guid: ee4e29951d1ccf8428408c4bb49f9dda, type: 3}
+  <BlackCircleController>k__BackingField: {fileID: 1805028656939093839, guid: 3fcaad05f6cc5ba49b054e6cce0a8bc3, type: 3}

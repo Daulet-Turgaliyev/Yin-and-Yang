@@ -12,11 +12,23 @@ namespace Common.UI
         [SerializeField] private CanvasGroup _startPanelCanvasGroup;
         [SerializeField] private CanvasGroup _levelPanelCanvasGroup;
         [SerializeField] private TextMeshProUGUI _versionText;
-
+        
+        
         private void Start()
         {
-            _startPanelCanvasGroup.DOFade(1, 1).OnComplete(OpenLevelSelect);
-            _versionText.text = Application.version;
+
+            if (GlobalSceneManager.HasActivated == false)
+            {
+                _startPanelCanvasGroup.DOFade(1, 1).OnComplete(OpenLevelSelect);
+                _versionText.text = Application.version;
+                GlobalSceneManager.HasActivated = true;
+            }
+            else
+            {
+                _startPanelCanvasGroup.gameObject.SetActive(false);
+                _levelPanelCanvasGroup.gameObject.SetActive(true);
+                _levelPanelCanvasGroup.DOFade(1, 1);
+            }
         }
 
         public void OpenLevelSelect()

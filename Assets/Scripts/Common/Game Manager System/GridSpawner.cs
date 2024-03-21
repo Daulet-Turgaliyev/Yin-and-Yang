@@ -11,12 +11,13 @@ namespace Common.Game_Manager_System
 {
     public class GridSpawner : MonoBehaviour, ICellSpawnerService
     {
-        [SerializeField]
         private Cell _cellPrefab; 
         
         private ISoundManagerService _soundManagerService;
         
-        private float _cellSize;
+        private SpawnDirection _spawnDirection;
+        private Vector2 _cellSize;
+        private Vector2 _spacing;
         
         [SerializeField] private GameObject _wallPrefab;
 
@@ -31,7 +32,13 @@ namespace Common.Game_Manager_System
         public void Initialize(SoundPackPreset soundPackPreset)
         {
             _soundPackPreset = soundPackPreset;
+            
+            _spawnDirection = soundPackPreset.SpawnDirection;
             _cellSize = soundPackPreset.CellSize;
+            _spacing = soundPackPreset.CellSpacing;
+
+            _cellPrefab = soundPackPreset.CellPrefab;
+            
             SpawnSquares();
         }
 
@@ -40,43 +47,48 @@ namespace Common.Game_Manager_System
             Vector2 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
             Vector2 topRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane));
 
-            int squaresX = Mathf.CeilToInt((topRight.x - bottomLeft.x) / _cellSize);
-            int squaresY = Mathf.CeilToInt((topRight.y - bottomLeft.y) / _cellSize);
+            int squaresX = Mathf.CeilToInt((topRight.x - bottomLeft.x) / (_cellSize.x + _spacing.x));
+            int squaresY = Mathf.CeilToInt((topRight.y - bottomLeft.y) / (_cellSize.y + _spacing.y));
 
-            // Толщина стен устанавливается в значение _cellSize для удобства, но вы можете выбрать другое значение при необходимости
-            float thickness = _cellSize / 6;
     
             // Расчет и спавн стен вдоль границ камеры
-            CreateWall(new Vector2(bottomLeft.x, (bottomLeft.y + topRight.y) / 2), new Vector2(thickness, topRight.y - bottomLeft.y)); // Левая стена
-            CreateWall(new Vector2(topRight.x, (bottomLeft.y + topRight.y) / 2), new Vector2(thickness, topRight.y - bottomLeft.y)); // Правая стена
-            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, bottomLeft.y), new Vector2(topRight.x - bottomLeft.x, thickness)); // Нижняя стена
-            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, topRight.y), new Vector2(topRight.x - bottomLeft.x, thickness)); // Верхняя стена
+            CreateWall(new Vector2(bottomLeft.x, (bottomLeft.y + topRight.y) / 2), new Vector2(.5f, topRight.y - bottomLeft.y)); // Левая стена
+            CreateWall(new Vector2(topRight.x, (bottomLeft.y + topRight.y) / 2), new Vector2(.5f, topRight.y - bottomLeft.y)); // Правая стена
+            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, bottomLeft.y), new Vector2(topRight.x - bottomLeft.x, .5f)); // Нижняя стена
+            CreateWall(new Vector2((bottomLeft.x + topRight.x) / 2, topRight.y), new Vector2(topRight.x - bottomLeft.x, .5f)); // Верхняя стена
 
-            for (int y = squaresY - 1; y >= 0; y--) // Измените условие цикла, чтобы y уменьшался
+
+            int orderInLayer = 0;
+            for (int y = 0; y < squaresY; y++)
             {
+                if (_spawnDirection == SpawnDirection.LeftToRight) orderInLayer--;
+                if (_spawnDirection == SpawnDirection.RightToLeft) orderInLayer++;
+                
                 for (int x = 0; x < squaresX; x++)
                 {
-                    Vector2 spawnPosition = new Vector2(bottomLeft.x + (x * _cellSize) + _cellSize / 2,
-                        bottomLeft.y + (y * _cellSize) + _cellSize / 2);
+                    Vector2 spawnPosition = new Vector2(bottomLeft.x + (x * (_cellSize.x + _spacing.x)) + _cellSize.x / 2,
+                        bottomLeft.y + (y * (_cellSize.y + _spacing.y)) + _cellSize.y / 2);
 
                     Cell cell = Instantiate(_cellPrefab, spawnPosition, Quaternion.identity);
                     cell.transform.localScale = Vector3.one * _cellSize; 
                     if (spawnPosition.x < 0)
                     {
-                        cell.Initialize(_soundPackPreset.GetRandomWhiteCellSkin(), _soundPackPreset.GetRandomBlackCellSkin(), squaresY - 1 - y); // Измените y на squaresY - 1 - y, если хотите сохранить исходное поведение
+                        cell.Initialize(_soundPackPreset.GetRandomWhiteCellSkin(), _soundPackPreset.GetRandomBlackCellSkin(), orderInLayer); // Измените y на squaresY - 1 - y, если хотите сохранить исходное поведение
                         cell.SetCellState(CellState.White);
                     }
                     else
                     {
-                        cell.Initialize(_soundPackPreset.GetRandomWhiteCellSkin(), _soundPackPreset.GetRandomBlackCellSkin(), squaresY - 1 - y); // Аналогично измените y здесь
+                        cell.Initialize(_soundPackPreset.GetRandomWhiteCellSkin(), _soundPackPreset.GetRandomBlackCellSkin(), orderInLayer); // Аналогично измените y здесь
                         cell.SetCellState(CellState.Black);
                     }
                     cell.transform.SetParent(transform);
                     cell.cellState.OnChanged += _soundManagerService.PlayRandomSound;
                 }
             }
-
+            
+            transform.position = new Vector3(transform.position.x, _spacing.y);
         }
+        
         
         private void CreateWall(Vector2 position, Vector2 size)
         {

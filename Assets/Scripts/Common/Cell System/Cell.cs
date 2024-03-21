@@ -19,12 +19,12 @@ namespace Common.Cell_System
     
         private void Awake()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         public void Initialize(Sprite whiteSprite, Sprite blackSprite, int orderInLayer)
         {
-            _spriteRenderer.sortingOrder = orderInLayer;
+             _spriteRenderer.sortingOrder = orderInLayer;
             _whiteSprite = whiteSprite;
             _blackSprite = blackSprite;
         }
@@ -54,6 +54,12 @@ namespace Common.Cell_System
         private void SetBlackCell()
         {
             gameObject.layer = LayerMask.NameToLayer(_blackCellLayerString);
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer(_blackCellLayerString);
+            }
+            
             cellState.Value = CellState.Black;
             _spriteRenderer.sprite = _blackSprite;
         }
@@ -61,6 +67,11 @@ namespace Common.Cell_System
         private void SetWhiteCell()
         {
             gameObject.layer = LayerMask.NameToLayer(_whiteCellLayerString);
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer(_whiteCellLayerString);
+            }
             cellState.Value = CellState.White;
             _spriteRenderer.sprite = _whiteSprite;
         }

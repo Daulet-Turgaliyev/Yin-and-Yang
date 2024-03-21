@@ -15,13 +15,6 @@ namespace Common.Game_Manager_System
         private Sprite _whiteSprite;
         private Sprite _blackSprite;
         
-        public void Initialize(SoundPackPreset soundPackPreset)
-        {
-            _soundPackPreset = soundPackPreset;
-            _whiteSprite = soundPackPreset.WhiteCircleSkin;
-            _blackSprite = soundPackPreset.BlackCircleSkin;
-        }
-
         public int WhiteCount => _whiteCount;
         private int _whiteCount;
         public int BlackCount => _blackCount;
@@ -29,19 +22,26 @@ namespace Common.Game_Manager_System
 
         public CircleCounter CircleCounter { get; }
 
-        private readonly WhiteCircleController _whiteCircleControllerPrefab;
-        private readonly BlackCircleController _blackCircleControllerPrefab;
+        private WhiteCircleController _whiteCircleControllerPrefab;
+        private BlackCircleController _blackCircleControllerPrefab;
         
-        public CircleSpawner(IObjectResolver objectResolver, 
-            WhiteCircleController whiteCircleControllerPrefab, 
-            BlackCircleController blackCircleControllerPrefab)
+        public CircleSpawner(IObjectResolver objectResolver)
         {
             _objectResolver = objectResolver;
-            _whiteCircleControllerPrefab = whiteCircleControllerPrefab;
-            _blackCircleControllerPrefab = blackCircleControllerPrefab;
-            
             CircleCounter = new CircleCounter();
         }
+        
+        public void Initialize(SoundPackPreset soundPackPreset)
+        {
+            _soundPackPreset = soundPackPreset;
+            
+            _whiteCircleControllerPrefab = soundPackPreset.WhiteCircleController;
+            _blackCircleControllerPrefab = soundPackPreset.BlackCircleController;
+            
+            _whiteSprite = soundPackPreset.WhiteCircleSkin;
+            _blackSprite = soundPackPreset.BlackCircleSkin;
+        }
+
     
         public void SpawnBalls(CircleType circleType, int spawnCount)
         {
@@ -66,8 +66,7 @@ namespace Common.Game_Manager_System
                 ACircleController aCircleControllerPrefab = circleType == CircleType.White ? _whiteCircleControllerPrefab : _blackCircleControllerPrefab;
                 var circle = _objectResolver.Instantiate(aCircleControllerPrefab, randomSpawnPos, Quaternion.identity);
                 var skinSprite = circleType == CircleType.White ? _whiteSprite : _blackSprite;
-                var trailRendererPrefab = circleType == CircleType.White ? _soundPackPreset.WhiteTrailPrefabs : _soundPackPreset.BlackTrailPrefabs;
-                circle.Initialize(_soundPackPreset, skinSprite, trailRendererPrefab);
+                circle.Initialize(_soundPackPreset, skinSprite);
                 circle.transform.localScale = Vector3.one * _soundPackPreset.CircleSize;
                 CircleCounter.Add(circle);
             }

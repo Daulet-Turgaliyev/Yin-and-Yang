@@ -6,6 +6,7 @@ namespace Common.GlobalScene
     public static class GlobalSceneManager
     {
         private const string loadingSceneName = "Assets/Scenes/LoadingScene.unity";
+        public static bool HasActivated;
         
         public static async void LoadSceneAsync(string sceneName)
         {
