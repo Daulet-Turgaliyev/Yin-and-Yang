@@ -1,4 +1,3 @@
-using Common.Circle;
 using Common.Containers.GameManagerServices;
 using Common.Environment_System;
 using Common.Game_Manager_System;
@@ -12,9 +11,6 @@ namespace Common.Containers
 {
     public class GameBaseLifetimeScope: LifetimeScope
     {
-        [SerializeField] private WhiteCircleController _whiteCircleController;
-        [SerializeField] private BlackCircleController _blackCircleController;
-
         [SerializeField] private SoundManager _soundManager;
 
         [SerializeField] private SettingsPanel _settingsPanel;
@@ -24,9 +20,7 @@ namespace Common.Containers
         {
             builder.Register<IGameManagerService, GameManager>(Lifetime.Singleton);
 
-            builder.Register<ICircleSpawnService, CircleSpawner>(Lifetime.Singleton)
-                .WithParameter(_whiteCircleController)
-                .WithParameter(_blackCircleController);
+            builder.Register<ICircleSpawnService, CircleSpawner>(Lifetime.Singleton);
 
             builder.RegisterInstance<ISoundManagerService, SoundManager>(_soundManager).AsSelf();
             

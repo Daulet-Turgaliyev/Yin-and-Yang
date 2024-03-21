@@ -29,6 +29,9 @@ namespace Common.Circle
         private Vector2 _movementDirection;
 
         private Rigidbody2D _rigidbody2D;
+
+        private Vector2 _bottomLeft;
+        private Vector2 _topRight;
         
         [Inject]
         public void Constructor(
@@ -48,7 +51,27 @@ namespace Common.Circle
             ChoseNewDirection();
         }
 
-        public void Initialize(SoundPackPreset soundPackPreset, Sprite sprite, TrailRenderer trailRendererPrefab)
+        private void Start()
+        {
+            _bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
+            _topRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane));
+            
+            _bottomLeft -= Vector2.one;
+            _topRight += Vector2.one;
+        }
+
+        private void Update()
+        {
+            Vector2 position = transform.position;
+
+            if (position.x < _bottomLeft.x || position.x > _topRight.x || position.y < _bottomLeft.y || position.y > _topRight.y)
+            {
+                transform.position = new Vector2((_bottomLeft.x + _topRight.x) / 2, (_bottomLeft.y + _topRight.y) / 2);
+            }
+        }
+
+
+        public void Initialize(SoundPackPreset soundPackPreset, Sprite sprite)
         {
             SetSkin(sprite);
             
@@ -56,15 +79,6 @@ namespace Common.Circle
             _rotationMode = soundPackPreset.RotationMode;
 
             ChoseNewDirection();
-
-            if (trailRendererPrefab != null)
-            {
-                Instantiate(trailRendererPrefab.gameObject, transform);
-            }
-            else
-            {
-                Debug.LogWarning("Traill Prefab is null");
-            }
             
             switch (_rotationMode)
             {
@@ -114,7 +128,7 @@ namespace Common.Circle
 
         private void SetSkin(Sprite sprite)
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _spriteRenderer.sprite = sprite;
         }
         

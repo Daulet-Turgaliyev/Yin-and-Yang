@@ -1,3 +1,5 @@
+using Common.Cell_System;
+using Common.Circle;
 using UnityEngine;
 
 namespace Common.Data
@@ -22,8 +24,9 @@ namespace Common.Data
         
         [field: SerializeField] public SoundPackData SoundPackData { get; private set; }
         
-        [field: SerializeField] public TrailRenderer WhiteTrailPrefabs { get; private set; }
-        [field: SerializeField] public TrailRenderer BlackTrailPrefabs { get; private set; }
+        [field: SerializeField] public Cell CellPrefab { get; private set; }
+        [field: SerializeField] public WhiteCircleController WhiteCircleController { get; private set; }
+        [field: SerializeField] public BlackCircleController BlackCircleController { get; private set; }
 
         public Sprite GetRandomWhiteCellSkin()
         {

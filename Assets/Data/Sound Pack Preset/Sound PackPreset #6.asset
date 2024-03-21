@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SoundPackName>k__BackingField: Bubble Wrap
   <SoundLogo>k__BackingField: {fileID: 21300000, guid: 480261baa5f11fe4b88cecfaf1b2ac80, type: 3}
-  <CircleSize>k__BackingField: 3
+  <CircleSize>k__BackingField: 6
   <CellSize>k__BackingField: {x: 6, y: 6}
   <CellSpacing>k__BackingField: {x: 0, y: 0}
   <SpawnDirection>k__BackingField: 1
-  <RotationMode>k__BackingField: 0
+  <RotationMode>k__BackingField: 1
   <WhiteCircleSkin>k__BackingField: {fileID: 21300000, guid: cb530910337ec5e4fa7c17a30f9fe717, type: 3}
   <BlackCircleSkin>k__BackingField: {fileID: 21300000, guid: e028b8a85314e7a4795b6f98dd68c610, type: 3}
   <WhiteCellSkin>k__BackingField:
@@ -42,5 +42,6 @@ MonoBehaviour:
   - {fileID: -180056434, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
   - {fileID: -1548792224, guid: f8666bb063552be4a87f40e931d6f11f, type: 3}
   <SoundPackData>k__BackingField: {fileID: 11400000, guid: 573e21347839a6547ba1dc5ba3c1e394, type: 2}
-  <WhiteTrailPrefabs>k__BackingField: {fileID: 0}
-  <BlackTrailPrefabs>k__BackingField: {fileID: 0}
+  <CellPrefab>k__BackingField: {fileID: 6365035390096747146, guid: 81008c928756c8442abb43cf506f3026, type: 3}
+  <WhiteCircleController>k__BackingField: {fileID: 1693190547047130533, guid: ee4e29951d1ccf8428408c4bb49f9dda, type: 3}
+  <BlackCircleController>k__BackingField: {fileID: 1805028656939093839, guid: 3fcaad05f6cc5ba49b054e6cce0a8bc3, type: 3}
