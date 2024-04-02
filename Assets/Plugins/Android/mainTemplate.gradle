@@ -35,9 +35,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-installations-unity:11.8.0' // Assets/Firebase/Editor/InstallationsDependencies.xml:20
 // Android Resolver Dependencies End
 **DEPS**}
-configurations {
-    all*.exclude group: 'com.google.android.gms', module: 'play-services-ads'
-}
 
 // Android Resolver Exclusions Start
 android {
